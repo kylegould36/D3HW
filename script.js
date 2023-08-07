@@ -18,24 +18,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
+  //Change title
   document.querySelector("h1").innerHTML = "Welcome to my family";
 
   // Part 2
+  //Change background color
   document.body.style.backgroundColor = "purple";
 
   // Part 3
+  //Get last li item in ul and delete it
   let last = document.getElementById("favorite-things");
   last.removeChild(last.lastElementChild);
 
   // Part 4
+  //Select special titles
   var changeFont = document.querySelectorAll(".special-title");
+  //Loop through each title
   for(var i = 0; i < changeFont.length; i++) {
+    //Change the font size
     changeFont[i].style.fontSize = "2rem";
   }
 
   // Part 5
+  //Select past races
   const list = document.getElementById("past-races");
   if(list.hasChildNodes()) {
+    //Remove Chicago at index 3
     list.removeChild(list.children[3]);
   }
 
@@ -46,30 +54,46 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("past-races").appendChild(addRace);
 
   // Part 7
+  //Creat blog post div
   var blogPost = document.createElement("div");
+  //Add classes
   blogPost.setAttribute("class", "blog-post purple");
+  //Create h2 for blog post
   var blogPostH2 = document.createElement("h1");
+  //Add text to blog post
   blogPostH2.textContent = "Flavortown";
+  //Add everything to blog post
   blogPost.appendChild(blogPostH2);
 
+  //Create p for blog post
   var blogPostP = document.createElement("p");
+  //Add text to blog post
   blogPostP.textContent = "I ROLLED OUT WITH GUY FIERI LOOKING FOR AMERICA'S GREATEST DINERS, DRIVE INS, AND DIVES!";
+  //Add to blog post
   blogPost.appendChild(blogPostP)
 
+  //Add blog post to main div
   document.querySelector(".main").appendChild(blogPost);
 
   // Part 8
+  //Get the quote title
   var quoteTitle = document.getElementById("quote-title");
+  //Add event listner
   quoteTitle.addEventListener("click", randomQuote, false);
 
   // Part 9
+  //Get all blog posts
   var blogposts = document.querySelectorAll(".blog-post");
+  //Put blog posts in an array
   var blogArr = [];
 
+  //Loop through each
   for(var i = 0; i < blogposts.length; i++) {
+    //Add to array
     blogArr.push(blogposts[i]);
   }
 
+  //Loop through each blog post in array
   blogArr.forEach(function (post) {
     post.addEventListener("mouseout", function (e) {
       post.setAttribute("class", "blog-post purple");
