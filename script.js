@@ -18,19 +18,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
+  
   //Change title
   document.querySelector("h1").innerHTML = "Welcome to my family";
 
   // Part 2
+
   //Change background color
   document.body.style.backgroundColor = "purple";
 
   // Part 3
+
   //Get last li item in ul and delete it
   let last = document.getElementById("favorite-things");
   last.removeChild(last.lastElementChild);
 
   // Part 4
+
   //Select special titles
   var changeFont = document.querySelectorAll(".special-title");
   //Loop through each title
@@ -40,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   // Part 5
+
   //Select past races
   const list = document.getElementById("past-races");
   if(list.hasChildNodes()) {
@@ -48,12 +53,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   // Part 6
+
+  //Create list element
   const addRace = document.createElement("li");
+  //Add new li to ul
   const raceNode = document.createTextNode("Flavortown");
+  //Append past races
   addRace.appendChild(raceNode);
   document.getElementById("past-races").appendChild(addRace);
 
   // Part 7
+
   //Creat blog post div
   var blogPost = document.createElement("div");
   //Add classes
@@ -76,12 +86,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelector(".main").appendChild(blogPost);
 
   // Part 8
+
   //Get the quote title
   var quoteTitle = document.getElementById("quote-title");
   //Add event listner
   quoteTitle.addEventListener("click", randomQuote, false);
 
   // Part 9
+
   //Get all blog posts
   var blogposts = document.querySelectorAll(".blog-post");
   //Put blog posts in an array
@@ -96,19 +108,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //Loop through each blog post in array
   blogArr.forEach(function (post) {
     post.addEventListener("mouseout", function (e) {
+      //Change class to include purple
       post.setAttribute("class", "blog-post purple");
     }, false);
 
+    //Add mouseenter event handler
     post.addEventListener("mouseenter", function (e) {
+      //Change class to include red
       post.setAttribute("class", "blog-post red");
     }, false);
 
+    //Create array for blog post children
     var blogChildren = [];
+    //Add each child to array
     for(var i = 0; i < post.children.length; i++) {
       blogChildren.push(post.children[i]);
     }
 
+    //forEach each child
     blogChildren.forEach(function (child) {
+      //Set pointer events to none
       child.style.pointerEvents = "none";
     });
   })
