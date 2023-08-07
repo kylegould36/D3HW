@@ -13,29 +13,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
   };
   randomQuote();
+
   
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
-
+  document.querySelector("h1").innerHTML = "Welcome to my family";
 
   // Part 2
-
+  document.body.style.backgroundColor = "purple";
 
   // Part 3
-
+  let last = document.getElementById("favorite-things");
+  last.removeChild(last.lastElementChild);
 
   // Part 4
-
+  var changeFont = document.querySelectorAll(".special-title");
+  for(var i = 0; i < changeFont.length; i++) {
+    changeFont[i].style.fontSize = "2rem";
+  }
 
   // Part 5
-
+  const list = document.getElementById("past-races");
+  if(list.hasChildNodes()) {
+    list.removeChild(list.children[3]);
+  }
 
   // Part 6
-
+  const addRace = document.createElement("li");
+  const raceNode = document.createTextNode("Flavortown");
+  addRace.appendChild(raceNode);
+  document.getElementById("past-races").appendChild(addRace);
 
   // Part 7
-
 
   // Part 8
 
