@@ -46,13 +46,46 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("past-races").appendChild(addRace);
 
   // Part 7
+  var blogPost = document.createElement("div");
+  blogPost.setAttribute("class", "blog-post purple");
+  var blogPostH2 = document.createElement("h1");
+  blogPostH2.textContent = "Flavortown";
+  blogPost.appendChild(blogPostH2);
+
+  var blogPostP = document.createElement("p");
+  blogPostP.textContent = "I ROLLED OUT WITH GUY FIERI LOOKING FOR AMERICA'S GREATEST DINERS, DRIVE INS, AND DIVES!";
+  blogPost.appendChild(blogPostP)
+
+  document.querySelector(".main").appendChild(blogPost);
 
   // Part 8
-
+  var quoteTitle = document.getElementById("quote-title");
+  quoteTitle.addEventListener("click", randomQuote, false);
 
   // Part 9
+  var blogposts = document.querySelectorAll(".blog-post");
+  var blogArr = [];
 
+  for(var i = 0; i < blogposts.length; i++) {
+    blogArr.push(blogposts[i]);
+  }
 
+  blogArr.forEach(function (post) {
+    post.addEventListener("mouseout", function (e) {
+      post.setAttribute("class", "blog-post purple");
+    }, false);
 
+    post.addEventListener("mouseenter", function (e) {
+      post.setAttribute("class", "blog-post red");
+    }, false);
 
+    var blogChildren = [];
+    for(var i = 0; i < post.children.length; i++) {
+      blogChildren.push(post.children[i]);
+    }
+
+    blogChildren.forEach(function (child) {
+      child.style.pointerEvents = "none";
+    });
+  })
 });
